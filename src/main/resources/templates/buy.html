@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.com">
+
+<head>
+	<meta charset="UTF-8" />
+	<title>Buy Product </title>
+	<link rel="stylesheet" href="" />
+</head>
+<style>
+	body {
+		background-image: url("/Images/4.avif");
+		background-size: cover;
+	}
+
+	* {
+		font-size: 16px;
+		font-family: sans-serif;
+	}
+
+	.searchInput {
+		margin-top: 30px;
+	}
+
+	.searchInput input {
+		padding: 15px;
+		width: 270px;
+	}
+
+	.searchInput button {
+		padding: 15px;
+		width: 100px;
+		background-color: red;
+	}
+
+	.details {
+		margin-top: 70px;
+	}
+
+	.details input,
+	.details button {
+		display: block;
+		padding: 5px;
+		font-size: 16px;
+		
+
+	}
+
+	a {
+		border: 1px solid black;
+		background-color: darkgoldenrod;
+		color: white;
+		text-decoration: none;
+		padding: 7px;
+		width: 50px;
+		position: fixed;
+	}
+	.details th{
+		background-color: dimgray;
+		font-family: sans-serif;
+		padding: 10px;
+		border: none;
+	
+	}
+	td{
+		text-align: center;
+		border-bottom: 1px solid lightslategrey;
+	}
+	.welcome marquee,.welcome span
+	{
+		
+		width: 50%;
+		font-size: 20px;
+		font-family: sans-serif;
+		color: black;
+		text-align: center;
+	}
+	
+</style>
+
+<body>
+	<div class="welcome">
+		<center>
+			<h3>Welcome Back <span th:text="${name}"></span>
+			</h3>
+			</center><br />
+	</div>
+	
+	<a href="/login">Back</a>
+	<center>
+		<div th:if="${product!=null}" class="details">
+			<form action="" th:action="@{/product/order}" th:object="${product}" method="post">
+				ProductName :
+				<input type="text" value="" name="oName" th:value="${product.pname}" readonly /><br />
+				Product Price :
+				<input type="text" value="" name="oPrice" th:value="${product.pprice}" readonly /><br />
+				Quqntity :
+				<input type="number" placeholder="Minimun: 1" min="1" name="oQuantity" /><br />
+
+				<button type="submit">Order_Now</button>
+
+			</form>
+		</div>
+	</center>
+</body>
+
+</html>

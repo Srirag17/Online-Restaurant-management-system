@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>PRODUCTS</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="" th:href="@{css/Products.css}" />
+</head>
+
+<body>
+    <section class="row1">
+        <div class="row">
+            <div th:each="s, iterStat : ${products}" class="col-md-6">
+                <div class="p1">
+                    <img th:src="${s.imageFileName}" alt="Product Image" />
+                    <h4>Product Name: <span th:text="${s.pname}"></span></h4>
+                    <h4>Product Price: <span th:text="'₹ ' + ${s.pprice}"></span></h4>
+                    <a th:href="@{/product/search}" class="buy">Buy Now</a><br />
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
